@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  }
+body {
+    width: 100%;
+    height: 5000px;
+    background: antiquewhite;
+
+}
+
+#whatsapp{
+  width: 80px;
+  height: 80px;
+  background-color: green;
+  border-radius: 80px;
+  border: 1px solid white;
+  color: white;
+  font-size: x-large;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  z-index: 3;
+  visibility: hidden;
+  
+}
+
+#whatsappMessage{
+  width: auto;
+  height: 40px;
+  background-color:white;
+  border-radius: 50px;
+  border-top-right-radius: 0px;
+  color: black;
+  font-weight: 300;
+  font-size:medium;
+  position: fixed;
+  right: 100px;
+  bottom: 25px;
+  padding: 5px;
+  cursor: pointer;
+  visibility: hidden;
+ 
+}
+
+#whatsappMessageBox{
+  width: 400px;
+  height: 400px;
+  background-color: whitesmoke;
+  border-radius: 50px;
+  color: white;
+  font-size:medium;
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  cursor: pointer;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  
+}
+
+#messageBoxControl{
+  background-color: green;
+  width: 100%;
+  height: 20%;
+  border: none;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.2rem;
+  
+
+}
+
+#messageBoxControl button{
+  width: 40px;
+  height: 40px;
+  font-size: large;
+    background: rgba(19, 19, 19, 0.084);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0 auto;
+  cursor: pointer;
+  
+  
+}
+#messageBoxControl button:hover{
+  
+  background: rgba(19, 19, 19, 0.300);
+}
+
+#messageBoxContact{
+  padding: 2%;
+width: 100%;
+height: 80%;
+display: flex;
+flex-direction: column;
+justify-content:space-between;
+
+}
+
+
+
+#messageLine{
+  width: 300px;
+  height: 80px;
+  background-color: wheat;
+  padding: 3px 0px 15px 25px;
+  margin-top: 3%;
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+  border: 0.3px solid rgba(220, 220, 220, 0.56);
+  font-size:medium;
+  text-align:start;
+  vertical-align: center;
+  
+}
+
+#messageSendButton{
+  width: auto;
+  height: 20%;
+  border-radius: 50px;
+  border: none;
+  font-size: larger;
+  background-color: green;
+  color: white;
+  align-self: flex-end;
+  text-align: center;
+  padding: 5%;
+  text-decoration: none;
+  
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <button id="whatsapp" onmouseover="showMessage()" onmouseout="hiddenMessage()"
+        onclick="openMessageBox()">
+        <i class="fa-brands fa-whatsapp fa-beat-fade fa-xl" style="color: #ffffff;"></i></button>
+    <button id="whatsappMessage">Merhaba bize buradan yazabilirsin</button>
+    <div id="whatsappMessageBox">
+        <div id="messageBoxControl">
+            <p> <i class="fa-brands fa-whatsapp  fa-2xl" style="color: #ffffff;"></i> Whatsapp</p>
+            <button onclick="closeMessageBox()">X</button>
+        </div>
+        <div id="messageBoxContact">
+            <button id="messageLine">Merhaba👋🏻 <br> Size nasıl yardımcı olabilirim?</button>
+           <a  id="messageSendButton" href="https://wa.me/+905426403216/?text=Merhaba,%20 bu sayfada yardıma ihtiyacım var?">Konuşmayı Aç
+           
+            <i class="fa-regular fa-paper-plane fa-beat-fade fa-lg" style="color: #ffffff;"></i>
+
+        </a>
+        </div>
+
+    </div>
+    <script>
+       setTimeout(() => {
+
+            let btnWhatsapp = document.getElementById("whatsapp");
+            btnWhatsapp.style.visibility = "visible";
+            setTimeout(() => {
+                let btnWhatsappMessage = document.getElementById("whatsappMessage");
+                btnWhatsappMessage.style.visibility = "visible";
+                setTimeout(() => {
+                    let btnWhatsappMessage = document.getElementById("whatsappMessage");
+                    btnWhatsappMessage.style.visibility = "hidden";
+
+                }, 3000);
+            }, 3000);
+
+        }, 3000);
+
+        const showMessage = () => {
+            let btnWhatsappMessage = document.getElementById("whatsappMessage");
+            setTimeout(() => {
+                btnWhatsappMessage.style.visibility = "visible";
+            }, 300)
+        }
+
+        const hiddenMessage = () => {
+            let btnWhatsappMessage = document.getElementById("whatsappMessage");
+            setTimeout(() => {
+                btnWhatsappMessage.style.visibility = "hidden";
+            }, 300)
+        }
+
+        const openMessageBox = () => {
+            let whatsappMessageBox = document.getElementById("whatsappMessageBox");
+            let whatsapp = document.getElementById("whatsapp");
+            let whatsappMessage = document.getElementById("whatsappMessage");
+            if ( whatsappMessageBox.style.visibility == "hidden") 
+            {
+                whatsapp.style.visibility = "hidden"
+                whatsappMessage.style.visibility = "hidden"
+                whatsappMessageBox.style.visibility = "visible"
+                whatsappMessageBox.style.height ="400px"
+                whatsappMessageBox.style.bottom ="50px"
+            }
+            else{
+                whatsapp.style.visibility = "visible"
+                whatsappMessageBox.style.visibility = "hidden"
+            }
+        }
+
+        const closeMessageBox=()=>{
+            document.getElementById("whatsappMessageBox").style.visibility="hidden";
+            document.getElementById("whatsapp").style.visibility="visible"
+        }
+
+
+
+
+    </script>
+</body>
+</html>
